@@ -24,17 +24,17 @@
           <i class="fa fa-times" id="menu-close"></i>
           <div class="container">
             <div class="image">
-              <a href="#"><img src="{% static 'images/profilepic.jpg' %}" alt="" /></a>
+              <a href="{% url 'index' %}"><img src="{% static 'images/profilepic.jpg' %}" alt="" /></a>
             </div>
             <div class="author-content">
               <h4>Gurkirat Singh</h4>
             </div>
             <nav class="main-nav" role="navigation">
               <ul class="main-menu">
-                <li><a href="#section1">About Me</a></li>
-                <li><a href="#section2">What I’m good at</a></li>
-                <li><a href="#section3">My Work</a></li>
-                <li><a href="#section4">Contact Me</a></li>
+                <li><a href="{% url 'index' %}">About Me</a></li>
+                <li><a href="{% url 'index' %}">What I’m good at</a></li>
+                <li><a href="{% url 'index' %}">My Projects</a></li>
+                <li><a href="{% url 'index' %}">Contact Me</a></li>
               </ul>
             </nav>
             <div class="social-network">
@@ -43,16 +43,16 @@
                   <a href="https://fb.com/templatemo"><i class="fa fa-facebook"></i></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
+                  <a href="{% url 'index' %}"><i class="fa fa-twitter"></i></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                  <a href="{% url 'index' %}"><i class="fa fa-linkedin"></i></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fa fa-dribbble"></i></a>
+                  <a href="{% url 'index' %}"><i class="fa fa-dribbble"></i></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fa fa-rss"></i></a>
+                  <a href="{% url 'index' %}"><i class="fa fa-rss"></i></a>
                 </li>
               </ul>
             </div>
@@ -65,10 +65,37 @@
           <div class="section-heading">
             <h2>Job Detail</h2>
             <div class="line-dec"></div>
-            <span class="lead text-body-secondary">{{ job.summary }}</span>
-            <img src="{{ job.image.url }}" height="300" alt="Job Image" />
+            
+            <!-- <img src="{{ job.image.url }}" height="300" alt="Job Image" /> -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active"  data-bs-interval="3000">
+                  <img src="{{ job.image.url }}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                  <img src="{{ job.image2.url }}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                  <img src="{{ job.image3.url }}" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <h5>{{ job.summary }}</h5>
             <p>
-              <a href="{% url 'index' %}" class="btn btn-primary my-2">Back</a>
+              <a href="{% url 'index' %}" class="btn btn-primary">Back</a>
             </p>
           </div>
         </div>
